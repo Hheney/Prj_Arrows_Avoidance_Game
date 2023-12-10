@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //플레이어 컨트롤러 내부에서만 사용하므로 private 접근 지정자 사용
-    private float fLeftWallXPos = -10.0f;   //왼쪽 벽 X 좌표값
-    private float fRightWallXPos = 10.0f;   //오른쪽 벽 X 좌표값
+    private float fLeftWallXPos = -10.5f;   //왼쪽 벽 X 좌표값
+    private float fRightWallXPos = 10.5f;   //오른쪽 벽 X 좌표값
     private float fGroundYPos = -3.6f;      //바닥 Y 좌표값
 
     // Start is called before the first frame update
@@ -20,15 +20,15 @@ public class PlayerController : MonoBehaviour
     {
         /*
          * ArrowController 내부 화살이 화면 밖으로 나가면 자기 자신을 소멸시키는 메소드를 참조하여
-         * 플레이어의 X좌표값이 지정된 
+         * 플레이어의 X좌표값이 지정된 값을 벗어나면 벽의 X좌표값으로 이동한다.
          */
-        if (transform.position.x < fLeftWallXPos)
+        if (transform.position.x < fLeftWallXPos) //만약(플레이어의 X좌표값 < 왼쪽 벽 X좌표값)
         {
-            transform.position = new Vector2(fLeftWallXPos, fGroundYPos);
+            transform.position = new Vector2(fLeftWallXPos, fGroundYPos); //왼쪽 벽 위치로 초기화
         }
-        else if(transform.position.x > fRightWallXPos)
-        {
-            transform.position = new Vector2(fRightWallXPos, fGroundYPos);
+        else if(transform.position.x > fRightWallXPos) //만약(플레이어의 X좌표값 > 오른쪽 벽 X좌표값)
+        { 
+            transform.position = new Vector2(fRightWallXPos, fGroundYPos); //오른쪽 벽 위치로 초기화
         }
         else
         {
