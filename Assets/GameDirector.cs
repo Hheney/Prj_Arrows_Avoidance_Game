@@ -19,7 +19,7 @@ public class GameDirector : MonoBehaviour
 
     }
 
-    public void Damege()            // 공격을 받으면 피가 깍이는 메소드, ArrowController에서 호출을 해야하기에 public선언
+    public void f_HpBarReduction() // 공격을 받으면 피가 깍이는 메소드, ArrowController에서 호출을 해야하기에 public선언
     {
         gHpGauge.GetComponent<Image>().fillAmount -= 0.1f;     
     }
