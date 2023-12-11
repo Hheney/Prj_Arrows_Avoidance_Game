@@ -91,12 +91,12 @@ public class PlayerController : MonoBehaviour
         }*/
     }
 
-    public void RButtonDown()         // 오른쪽 버튼을 눌렀을 시 작동되는 메소드
+    public void f_RButtonDown()         // 오른쪽 버튼을 눌렀을 시 작동되는 메소드
     {
         transform.Translate(1, 0, 0);
     }
 
-    public void LButtonDown()         // 왼쪽 버튼을 눌렀을 시 작동되는 메소드
+    public void f_LButtonDown()         // 왼쪽 버튼을 눌렀을 시 작동되는 메소드
     {
         transform.Translate(-1, 0, 0);
     }
