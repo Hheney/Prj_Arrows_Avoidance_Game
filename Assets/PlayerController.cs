@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //플레이어 컨트롤러 내부에서만 사용하므로 private 접근 지정자 사용
-    private float fLeftWallXPos = -10.5f;   //왼쪽 벽 X 좌표값
-    private float fRightWallXPos = 10.5f;   //오른쪽 벽 X 좌표값
-    private float fGroundYPos = -3.6f;      //바닥 Y 좌표값
+    private const float fLeftWallXPos = -10.5f;   //왼쪽 벽 X 좌표값 상수
+    private const float fRightWallXPos = 10.5f;   //오른쪽 벽 X 좌표값 상수
+    private const float fGroundYPos = -3.6f;      //바닥 Y 좌표값 상수
 
-    private float fXPosRangeLimit = 0.0f;   //X좌표값 범위 제한
-    private float fMinXPos = -10.5f;        //X좌표의 최소값
-    private float fMaxXPos = 10.5f;         //X좌표의 최대값
+    private float fXPosRangeLimit = 0.0f;   //X좌표값 범위 제한 변수
+    private const float fMinXPos = -10.5f;  //X좌표의 최소값 상수
+    private const float fMaxXPos = 10.5f;   //X좌표의 최대값 상수
 
     // Start is called before the first frame update
     void Start()

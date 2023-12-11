@@ -20,6 +20,7 @@ public class ArrowController : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         gPlayer = GameObject.Find("player");
+        //gDir = GameObject.Find("GameDirector"); //게임디렉터 찾아오기
     }
 
     // Update is called once per frame
@@ -51,7 +52,8 @@ public class ArrowController : MonoBehaviour
 
         if (fDistance < r1 + r2)
         {
-            gDir = GameObject.Find("GameDirector");                 // 만약 충돌헀다면 게임디렉터 찾아오기
+            GameObject gDir = GameObject.Find("GameDirector");
+
             gDir.GetComponent<GameDirector>().f_HpBarReduction();   // 찾아온 gDir을 통해 f_HpBarReduction 메소드 가져오기
 
             Destroy(gameObject);
