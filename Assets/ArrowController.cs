@@ -12,8 +12,8 @@ public class ArrowController : MonoBehaviour
     Vector2 vDir = Vector2.zero;
 
     float fDistance = 0.0f;
-    float r1 = 0.5f;
-    float r2 = 1.0f;
+    float fArrowRadius = 0.5f;
+    float fPlayerRadius = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +50,7 @@ public class ArrowController : MonoBehaviour
 
         fDistance = vDir.magnitude;
 
-        if (fDistance < r1 + r2)
+        if (fDistance < fArrowRadius + fPlayerRadius)
         {
             GameObject gDir = GameObject.Find("GameDirector");
 
