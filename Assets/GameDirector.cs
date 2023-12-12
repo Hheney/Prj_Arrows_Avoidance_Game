@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;               // UI를 사용하기에 추가
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
@@ -47,5 +48,13 @@ public class GameDirector : MonoBehaviour
          * 예) 직접 만든 스크립트도 컨퍼넌트의 일종이므로 GetComponent 메소드를 사용해서 구할 수 있음
          */
         gHpGauge.GetComponent<Image>().fillAmount -= 0.1f;
+
+
+        if(gHpGauge.GetComponent<Image>().fillAmount == 0.0f)
+        {
+            //다음씬
+            SceneManager.LoadScene("EndScene");
+        }
+        
     }
 }
