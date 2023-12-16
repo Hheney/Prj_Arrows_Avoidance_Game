@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowController : MonoBehaviour
+public class WaterController : MonoBehaviour
 {
     GameObject gPlayer = null;
 
-    Vector2 vArrowPosition = Vector2.zero;
+    Vector2 vWaterPosition = Vector2.zero;
     Vector2 vPlayerPosition = Vector2.zero;
     Vector2 vDir = Vector2.zero;
 
     //상수
-    private const float fArrowRadius = 0.5f;
+    private const float fWaterRadius = 0.5f;
     private const float fPlayerRadius = 1.0f;
 
     //변수
@@ -45,18 +45,18 @@ public class ArrowController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        vArrowPosition = transform.position;
+        vWaterPosition = transform.position;
         vPlayerPosition = gPlayer.transform.position;
 
-        vDir = vArrowPosition - vPlayerPosition;
+        vDir = vWaterPosition - vPlayerPosition;
 
         fDistance = vDir.magnitude;
 
-        if (fDistance < fArrowRadius + fPlayerRadius)
+        if (fDistance < fWaterRadius + fPlayerRadius)
         {
             GameObject gDir = GameObject.Find("GameDirector");
 
-            gDir.GetComponent<GameDirector>().f_HpBarDecrease();   // 찾아온 gDir을 통해 f_HpBarReduction 메소드 가져오기
+            //gDir.GetComponent<GameDirector>().f_HpBarWaterDecrease();   // 찾아온 gDir을 통해 f_HpBarReduction 메소드 가져오기
 
             Destroy(gameObject);
         }

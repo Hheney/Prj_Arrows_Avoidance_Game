@@ -12,7 +12,8 @@ public class GameDirector : MonoBehaviour
 {
     //디렉터 클래스에서만 사용하므로 private 접근제한
     private const float fHpUpItem = 0.1f;       //Hp 증가 아이템 상수
-    private const float fHpDownItem = 0.1f;     //Hp 감소 아이템 상수
+    private const float fHpDownFire = 0.21f;     //Hp 감소 아이템 상수(불)
+    private const float fHpDownWater = 0.1f;     //Hp 감소 아이템 상수(물)
     private const float fPlayerHpZero = 0.0f;   //플레이어 Hp가 0인 상수(게임 오버 조건)
 
     /*
@@ -55,7 +56,7 @@ public class GameDirector : MonoBehaviour
     /// <summary>
     /// 공격(화살, 물, 불등)을 맞으면 체력바가 감소하는 메소드, ArrowController에서 사용하기 위해 public 접근제한
     /// </summary>
-    public void f_HpBarDecrease()
+    public void f_HpBarFireDecrease()
     {
         /*
          * 유니티 오브젝트는 GameObject라는 빈 상자에 설정 자료(컴퍼넌트)를 추가해서 기능을 확장함
@@ -68,13 +69,32 @@ public class GameDirector : MonoBehaviour
          * 예) Text 컴퍼넌트를 원하면 → GetComponent<Text>()
          * 예) 직접 만든 스크립트도 컨퍼넌트의 일종이므로 GetComponent 메소드를 사용해서 구할 수 있음
          */
-        gHpGauge.GetComponent<Image>().fillAmount -= fHpDownItem; //상수(fHpDownItem) 만큼 Hp 감소
+        gHpGauge.GetComponent<Image>().fillAmount -= fHpDownFire; //상수(fHpDownFire) 만큼 Hp 감소
 
+        f_NextScene();                  // 채력 0 이면 다음씬 불러오는 메소드
+
+        /*
         if (gHpGauge.GetComponent<Image>().fillAmount == fPlayerHpZero) //Hp게이지의 fillAmount가 상수 fPlayerHpZero(0.0f)와 같으면
         {
             //엔딩씬으로 전환
             SceneManager.LoadScene("EndScene");
         }
-        
+        */
+    }
+
+    public void f_HpBarWaterDecrease()
+    {
+        gHpGauge.GetComponent<Image>().fillAmount -= fHpDownWater; //상수(fHpDownWater) 만큼 Hp 감소
+
+        f_NextScene();                  // 채력 0 이면 다음씬 불러오는 메소드
+    }
+
+    public void f_NextScene()
+    {
+        if (gHpGauge.GetComponent<Image>().fillAmount == fPlayerHpZero) //Hp게이지의 fillAmount가 상수 fPlayerHpZero(0.0f)와 같으면
+        {
+            //엔딩씬으로 전환
+            SceneManager.LoadScene("EndScene");
+        }
     }
 }
