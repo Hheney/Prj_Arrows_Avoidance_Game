@@ -20,6 +20,8 @@ public class GameDirector : MonoBehaviour
      * 그러기 위해서 Object 변수를 선언해서 HP Guage Image Object를 저장할 변수
      */
     GameObject gHpGauge = null; // 게임오브젝트 타입으로 null로 초기화
+    GameObject gBonusSound = null;
+    GameObject gHitSound = null;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,8 @@ public class GameDirector : MonoBehaviour
          * Find 메소드를 사용해 씬 중에서 HP 게이지의 오브젝트를 찾아서 오브젝트 변수인 gHpGauge에 저장
          */
         gHpGauge = GameObject.Find("HpGauge");
+        gBonusSound = GameObject.Find("BonusSound");
+        gHitSound = GameObject.Find("HitSound");
     }
 
     // Update is called once per frame
@@ -45,6 +49,7 @@ public class GameDirector : MonoBehaviour
     public void f_HpBarIncrease()
     {
         gHpGauge.GetComponent<Image>().fillAmount += fHpUpItem; //상수(fHpUpItem) 만큼 Hp 증가
+        GetComponent<AudioSource>().Play();
     }
 
     /// <summary>
@@ -65,7 +70,7 @@ public class GameDirector : MonoBehaviour
          */
         gHpGauge.GetComponent<Image>().fillAmount -= fHpDownItem; //상수(fHpDownItem) 만큼 Hp 감소
 
-        if(gHpGauge.GetComponent<Image>().fillAmount == fPlayerHpZero) //Hp게이지의 fillAmount가 상수 fPlayerHpZero(0.0f)와 같으면
+        if (gHpGauge.GetComponent<Image>().fillAmount == fPlayerHpZero) //Hp게이지의 fillAmount가 상수 fPlayerHpZero(0.0f)와 같으면
         {
             //엔딩씬으로 전환
             SceneManager.LoadScene("EndScene");
