@@ -5,22 +5,24 @@ using UnityEngine;
 public class ArrowController : MonoBehaviour
 {
     GameObject gPlayer = null;
-    GameObject gDir = null;                 // 감독스크립트를 찾아오기 위한 초기화
 
     Vector2 vArrowPosition = Vector2.zero;
     Vector2 vPlayerPosition = Vector2.zero;
     Vector2 vDir = Vector2.zero;
 
-    float fDistance = 0.0f;
-    float fArrowRadius = 0.5f;
-    float fPlayerRadius = 1.0f;
+    //상수
+    private const float fArrowRadius = 0.5f;
+    private const float fPlayerRadius = 1.0f;
+
+    //변수
+    private float fDistance = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
+
         gPlayer = GameObject.Find("player");
-        //gDir = GameObject.Find("GameDirector"); //게임디렉터 찾아오기
     }
 
     // Update is called once per frame
@@ -54,7 +56,7 @@ public class ArrowController : MonoBehaviour
         {
             GameObject gDir = GameObject.Find("GameDirector");
 
-            gDir.GetComponent<GameDirector>().f_HpBarReduction();   // 찾아온 gDir을 통해 f_HpBarReduction 메소드 가져오기
+            gDir.GetComponent<GameDirector>().f_HpBarDecrease();   // 찾아온 gDir을 통해 f_HpBarReduction 메소드 가져오기
 
             Destroy(gameObject);
         }

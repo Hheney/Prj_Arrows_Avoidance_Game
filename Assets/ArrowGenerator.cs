@@ -8,7 +8,7 @@ public class ArrowGenerator : MonoBehaviour
     GameObject gMove = null;
 
     float fSpan = 1.0f;
-    float fDelta = 0.0f;
+    float fDelta = 0.0f; 
 
     int nPositiionX = 0;
 
