@@ -17,9 +17,15 @@ public class EndScene : MonoBehaviour
         
     }
 
-    public void f_EndGame()
+    public void f_ReStartGame()
     {
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void f_EndGame()
+    {
+        Application.Quit();
+        Debug.Log("END");
     }
 }
 
