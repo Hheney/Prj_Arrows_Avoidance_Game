@@ -1,3 +1,7 @@
+/*
+ * 불 프리팹 생성기능 클래스
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

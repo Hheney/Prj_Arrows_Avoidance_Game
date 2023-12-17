@@ -1,3 +1,7 @@
+/*
+ * 화살대신 물이 떨어지도록 기능을 변경한 클래스
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

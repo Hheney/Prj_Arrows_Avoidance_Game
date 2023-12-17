@@ -1,3 +1,7 @@
+/*
+ * 화살대신 불이 떨어지도록 기능을 변경한 클래스
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,7 +35,7 @@ public class FireController : MonoBehaviour
         // Translate 메서드 : 오브젝트를 현재 좌표에서 인수 값만큼 이동시키는 메서드
         //    Y 좌표에 -0.1f를 지정하면 오브젝트를 조금씩 위에서 아래로 움직인다
         //    프레임마다 등속으로 낙하시킨다.
-        transform.Translate(0, -0.1f, 0);
+        transform.Translate(0, -0.2f, 0);
 
         // 화면 밖으로 나온 화살 소멸시키기
         //   화살을 내버려 두면 화면 밖으로 나가게 되고, 눈에 보이지는 않지만 계속 떨어짐
