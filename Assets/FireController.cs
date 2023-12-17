@@ -56,7 +56,7 @@ public class FireController : MonoBehaviour
         {
             GameObject gDir = GameObject.Find("GameDirector");
 
-            //gDir.GetComponent<GameDirector>().f_HpBarFireDecrease();   // 찾아온 gDir을 통해 f_HpBarReduction 메소드 가져오기
+            gDir.GetComponent<GameDirector>().f_HpBarFireDecrease();   // 찾아온 gDir을 통해 f_HpBarReduction 메소드 가져오기
 
             Destroy(gameObject);
         }
