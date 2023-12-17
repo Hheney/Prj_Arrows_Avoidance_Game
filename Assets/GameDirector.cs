@@ -11,7 +11,8 @@ using UnityEngine.SceneManagement;
 public class GameDirector : MonoBehaviour
 {
     public AudioClip BonusSound;
-    public AudioClip HitSound;
+    public AudioClip FireHitSound;
+    public AudioClip WaterHitSound;
     public AudioSource audioSource;
 
     //디렉터 클래스에서만 사용하므로 private 접근제한
@@ -70,7 +71,7 @@ public class GameDirector : MonoBehaviour
          * 예) 직접 만든 스크립트도 컨퍼넌트의 일종이므로 GetComponent 메소드를 사용해서 구할 수 있음
          */
         gHpGauge.GetComponent<Image>().fillAmount -= fHpDownFire; //상수(fHpDownFire) 만큼 Hp 감소
-        f_HitSound();
+        f_FireHitSound();
         f_NextScene();                  // 채력 0 이면 다음씬 불러오는 메소드
 
         /*
@@ -85,7 +86,7 @@ public class GameDirector : MonoBehaviour
     public void f_HpBarWaterDecrease()
     {
         gHpGauge.GetComponent<Image>().fillAmount -= fHpDownWater; //상수(fHpDownWater) 만큼 Hp 감소
-        f_HitSound();
+        f_WaterHitSound();
         f_NextScene();                  // 채력 0 이면 다음씬 불러오는 메소드
     }
 
@@ -104,9 +105,15 @@ public class GameDirector : MonoBehaviour
         audioSource.PlayOneShot(BonusSound);
     }
 
-    public void f_HitSound()
+    public void f_FireHitSound()
     {
         audioSource.volume = 0.8f;
-        audioSource.PlayOneShot(HitSound);
+        audioSource.PlayOneShot(FireHitSound);
+    }
+
+    public void f_WaterHitSound()
+    {
+        audioSource.volume = 0.8f;
+        audioSource.PlayOneShot(WaterHitSound);
     }
 }
